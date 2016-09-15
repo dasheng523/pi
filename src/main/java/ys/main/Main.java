@@ -9,7 +9,7 @@ import ys.drvier.LedDriver;
 public class Main {
     public static void main(String[] args) {
         LedDriver driver = new LedDriver();
-        Led led = driver.create(1, "myLed");
+        Led led = driver.create(1);
         driver.light(led);
     }
 }

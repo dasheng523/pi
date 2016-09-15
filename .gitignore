@@ -1,6 +1,7 @@
 .buildpath
 /.settings/
 pi.iml
+/target
 .project
 Runtime
 .idea/
