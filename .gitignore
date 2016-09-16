@@ -1,6 +1,6 @@
 .buildpath
 /.settings/
-*.example
+*.properties
 pi.iml
 /target
 .project
