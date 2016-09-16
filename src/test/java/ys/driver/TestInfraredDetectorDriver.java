@@ -22,9 +22,10 @@ public class TestInfraredDetectorDriver {
     }
 
     @Test
-    public void testListen() {
+    public void testListen() throws InterruptedException {
         InfraredDetectorDriver driver = new InfraredDetectorDriver();
         InfraredDetector infraredDetector = driver.create(0, 2);
-        driver.listen(infraredDetector, (isHasBody) -> logger.info(isHasBody ? "有人" : "没人"));
+        driver.listen(infraredDetector, this::log);
+        Thread.sleep(60 * 60 * 1000);
     }
 }

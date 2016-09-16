@@ -19,7 +19,7 @@ public class InfraredDetectorDriver{
 
     public InfraredDetector create(int powerChannel, int dataChannel) {
         GpioPinDigitalOutput outPin = gpio.provisionDigitalOutputPin(PinFactory.getPin(powerChannel), PinState.LOW);
-        PinPullResistance pull = PinPullResistance.PULL_DOWN;
+        PinPullResistance pull = PinPullResistance.PULL_UP;
         GpioPinDigitalInput inPin = gpio.provisionDigitalInputPin(PinFactory.getPin(dataChannel), pull);
 
         inPin.setShutdownOptions(true, PinState.LOW);

@@ -34,7 +34,7 @@
     <build>
         <resources>
             <resource>
-                <directory>${basedir}/src/main/resources</directory>
+                <directory>src/resources</directory>
             </resource>
         </resources>
         <plugins>
