@@ -1,6 +1,8 @@
 package ys.drvier;
 
 import com.pi4j.io.gpio.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ys.component.Led;
 
 /**
@@ -8,6 +10,7 @@ import ys.component.Led;
  */
 public class LedDriver {
     private final GpioController gpio = GpioFactory.getInstance();
+    private Logger logger = LoggerFactory.getLogger(LedDriver.class);
 
     public Led create(int channel) {
         final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(PinFactory.getPin(channel), PinState.LOW);
@@ -32,4 +35,5 @@ public class LedDriver {
         led.getPin().low();
         led.setPin(null);
     }
+
 }

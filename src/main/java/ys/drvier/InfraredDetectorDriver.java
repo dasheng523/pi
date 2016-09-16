@@ -3,7 +3,8 @@ package ys.drvier;
 import com.pi4j.io.gpio.*;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ys.component.InfraredDetector;
 
 import java.util.function.Consumer;
@@ -14,7 +15,7 @@ import java.util.function.Consumer;
  */
 public class InfraredDetectorDriver{
     private final GpioController gpio = GpioFactory.getInstance();
-    private final Logger logger = Logger.getLogger(InfraredDetectorDriver.class);
+    private final Logger logger = LoggerFactory.getLogger(InfraredDetectorDriver.class);
 
     public InfraredDetector create(int powerChannel, int dataChannel) {
         GpioPinDigitalOutput outPin = gpio.provisionDigitalOutputPin(PinFactory.getPin(powerChannel), PinState.LOW);

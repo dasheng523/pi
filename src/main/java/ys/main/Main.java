@@ -1,15 +1,19 @@
 package ys.main;
 
-import ys.component.Led;
-import ys.drvier.LedDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by yesheng on 2016/9/12.
  */
 public class Main {
+    private final Logger logger = LoggerFactory.getLogger(Main.class);
+
+    public void log() {
+        logger.error("ddddd");
+    }
+
     public static void main(String[] args) {
-        LedDriver driver = new LedDriver();
-        Led led = driver.create(1);
-        driver.light(led);
+        new Main().log();
     }
 }

@@ -13,10 +13,14 @@ import ys.drvier.LedDriver;
 public class TestLedDriver {
     private final Logger logger = Logger.getLogger(TestLedDriver.class);
     @Test
-    public void testLed() {
+    public void testLed() throws InterruptedException {
         LedDriver ledDriver = new LedDriver();
         Led led = ledDriver.create(1);
         ledDriver.light(led);
-        assertTrue(led.getPin().isHigh());
+        boolean isHigh = led.getPin().isHigh();
+        Thread.sleep(3000);
+        ledDriver.douse(led);
+        boolean isLow = led.getPin().isLow();
+        assertTrue(isHigh && isLow);
     }
 }
