@@ -4,13 +4,13 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ys.component.InfraredDetector;
-import ys.drvier.InfraredDetectorDriver;
+import ys.drvier.impl.InfraredDetectorDriverImpl;
 
 /**
  * Created by yesheng on 2016/9/16.
  */
 public class TestInfraredDetectorDriver {
-    private final Logger logger = LoggerFactory.getLogger(InfraredDetectorDriver.class);
+    private final Logger logger = LoggerFactory.getLogger(InfraredDetectorDriverImpl.class);
 
     private void log(Boolean isHasBody) {
         if (isHasBody) {
@@ -21,10 +21,9 @@ public class TestInfraredDetectorDriver {
         }
     }
 
-    @Test
     public void testListen() throws InterruptedException {
-        InfraredDetectorDriver driver = new InfraredDetectorDriver();
-        InfraredDetector infraredDetector = driver.create(0, 2);
+        InfraredDetectorDriverImpl driver = new InfraredDetectorDriverImpl();
+        InfraredDetector infraredDetector = driver.create(2);
         driver.listen(infraredDetector, this::log);
         Thread.sleep(60 * 60 * 1000);
     }

@@ -1,20 +1,23 @@
 package ys.driver;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 import ys.component.Led;
-import ys.drvier.LedDriver;
+import ys.drvier.TestDriver;
+import ys.drvier.impl.LedDriverImpl;
 
 /**
  * Created by yesheng on 2016/9/15.
  */
 public class TestLedDriver {
     private final Logger logger = Logger.getLogger(TestLedDriver.class);
-    @Test
+
     public void testLed() throws InterruptedException {
-        LedDriver ledDriver = new LedDriver();
+        LedDriverImpl ledDriver = new LedDriverImpl();
         Led led = ledDriver.create(1);
         ledDriver.light(led);
         boolean isHigh = led.getPin().isHigh();
@@ -22,5 +25,13 @@ public class TestLedDriver {
         ledDriver.douse(led);
         boolean isLow = led.getPin().isLow();
         assertTrue(isHigh && isLow);
+    }
+
+    @Test
+    public void test() {
+        Injector inj=  Guice.createInjector();
+        TestDriver testDriver = inj.getInstance(TestDriver.class);
+        boolean isTrue = testDriver.test();
+        assertTrue(isTrue);
     }
 }
