@@ -22,14 +22,16 @@ public class TestUltrasoundDriver {
     public void testDriver() throws InterruptedException, ExecutionException, TimeoutException {
         UltrasoundDriver ultrasoundDriver = new UltrasoundDriverImpl();
         Ultrasound ul = ultrasoundDriver.create(1, 2);
-        Double distance = 0D;
+        Double distance;
         while (true) {
             distance = ultrasoundDriver.measureDistance(ul);
             if (distance == 0){
+                logger.info("有问题的结果");
+                assertTrue(false);
                 break;
             }
-            logger.info(distance);
-            Thread.sleep(1000);
+            logger.info("距离：" + distance);
+            assertTrue(true);
         }
 
     }

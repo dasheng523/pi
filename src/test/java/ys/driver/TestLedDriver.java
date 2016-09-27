@@ -28,7 +28,7 @@ public class TestLedDriver {
     }
 
     @Test
-    public void test() {
+    public void testGuice() {
         Injector inj=  Guice.createInjector();
         TestDriver testDriver = inj.getInstance(TestDriver.class);
         boolean isTrue = testDriver.test();
