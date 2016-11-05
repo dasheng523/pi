@@ -18,7 +18,7 @@ public class TestUltrasoundDriver {
 
     private final Logger logger = Logger.getLogger(TestUltrasoundDriver.class);
 
-    @Test
+
     public void testDriver() throws InterruptedException, ExecutionException, TimeoutException {
         UltrasoundDriver ultrasoundDriver = new UltrasoundDriverImpl();
         Ultrasound ul = ultrasoundDriver.create(1, 2);

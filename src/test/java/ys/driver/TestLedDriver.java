@@ -27,7 +27,6 @@ public class TestLedDriver {
         assertTrue(isHigh && isLow);
     }
 
-    @Test
     public void testGuice() {
         Injector inj=  Guice.createInjector();
         TestDriver testDriver = inj.getInstance(TestDriver.class);

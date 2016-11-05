@@ -33,7 +33,7 @@ public class LedDriverImpl implements LedDriver {
         led.getPin().low();
     }
 
-    public void destory(Led led) {
+    public void destroy(Led led) {
         led.getPin().low();
         led.setPin(null);
     }

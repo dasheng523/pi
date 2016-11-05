@@ -19,5 +19,5 @@ public interface LedDriver {
     void douse(Led led);
 
     //摧毁实例
-    void destory(Led led);
+    void destroy(Led led);
 }
